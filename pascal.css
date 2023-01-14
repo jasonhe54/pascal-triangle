@@ -1,0 +1,50 @@
+.pascal-row {
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+}
+
+.pascal-row > * {
+    margin: 0 5px;
+}
+/* body {
+    max-width: 100vw;
+} */
+
+#pTriangle {
+    text-align: center;
+    display: grid;
+    /* width: 100vw; */
+    /* height: 50vh; */
+    /* margin: 0 auto; */
+}
+
+#pTriangle span {
+    flex: 0 0 auto;
+}
+span {
+    display: inline-block;
+    font-size: x-small;
+    font-weight: bold;
+}
+.pascal-row-number {
+    margin: 1px 1px;
+    border: 2px solid black;
+    width: 40px;
+}
+.scaledv1 {
+    transform: scale(1);
+}
+.noCSS {
+    all: unset;
+}
+
+
+/* #pTriangle {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} */
