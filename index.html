@@ -9,54 +9,175 @@
         <link rel="stylesheet" href="pascal.css">
     </head>
     <body>
-        <!-- <div class="alert alert-dark" role="alert">
-            This page will probably look very weird on a phone or tablet. It's best viewed on a computer or anything with a large screen.
+        <nav class="navbar bg-light">
+            <div class="container-fluid justify-content-center">
+                <h1 class="navbar-brand mb-0 h1">Pascal's Triangle</h1>
+            </div>
+        </nav>
+
+        <!-- <div class="alert alert-info" role="alert">
+            If you're on a smaller screen, or have a larger triangle with part of the triangle missing, you can scroll the triangle
+            right and left to see
+            the entire diagram
         </div> -->
-        <div class="alert alert-dark" role="alert">
-            Names, and other information go here, or something.
-        </div>
-        <div class="container text-center">
-            <div class="row align-items-start">
-                <div class="col-12 overflow-auto">
+
+        <!-- <h1>Pascal's Triangle:</h1> -->
+        
+        <div class="container text-center noPadding">
+            <div class="row align-items-start noMargin" style="max-width: 100%;">
+                <div class="col-lg-12 order-1 overflow-auto">
                     <div id="pTriangle" class="scaledv1"></div>
                 </div>
+            </div>
+            <span class="noCSS">The first row is Row 0, representing (a + b)<sup>0</sup>.</span>
+        </div>
+
+        <hr>
+
+        <div class="masonry-container">
+            <div class="row noMargin" data-masonry='{"percentPosition": true }' style="max-width: 100%;">
+                <div class="col-sm-6 mb-4">
+                    <div class="card text-bg-light mb-3" style="max-width: 30rem; margin: auto;">
+                        <div class="card-header">Configuration</div>
+                        <div class="card-body">
+                            <form id="NumberOfRowsForm">
+                                <label for="rows">Number of Rows:</label>
+                                <input type="number" id="NumberOfRows_SettingInput" name="rows" min="1" max="25" required
+                                    style="width: 100px;">
+                                <input type="submit" class="btn btn-dark" value="Set">
+                                <br>
+                                Current Number of Rows: <span id="NumberOfRows_Current" class="noCSS">-</span>
+                                <br>
+                                Maximum Number of Rows: <span class="noCSS">25</span>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 mb-4">
+                    <div class="card text-bg-light mb-3" style="max-width: 30rem; margin: auto;">
+                        <div class="card-header">Notices</div>
+                        <div class="card-body">
+                            <p class="card-text">If you're on a smaller screen, or have a larger triangle with part of the triangle missing, you can scroll the triangle right and left to see the entire diagram.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="card text-bg-light mb-3" style="max-width: 25rem; margin: auto;">
+                        <div class="card-header">About</div>
+                        <div class="card-body">
+                            <p class="card-text">Created By: ...</p>
+                        </div>
+                    </div>
+                </div> -->
             </div>
         </div>
 
         <hr>
-            <span class="noCSS">
-                * If you're on a smaller screen with part of the triangle missing, you can scroll the triangle right and left to see the entire thing.
-            </span>
-        <hr>
+        <h2 id="ResearchQuestionSection" class="text-center">Research Questions:</h2>
+        <div class="masonry-container">
+            <div class="row noMargin" data-masonry='{"percentPosition": true }' style="max-width: 100%;">
+                <div class="col-sm-6 mb-4">
+                    <div class="card text-bg-light mb-3" style="max-width: 30rem; margin: auto;">
+                        <div class="card-header">Research Question #1</div>
+                        <div class="card-body">
+                            <b>
+                                What is the Binomial Expansion Theorem? Explain and show how Pascal's Triangle can be used to expand any (ax +
+                                by)<sup>n</sup>.
+                                Discuss both coefficients and degree of variables.
+                            </b>
+                            <br>
+                            The Binomial Expansion Theorem is used to expand binomials in the form of (a+b)<sup>n</sup>. See 
+                            <a href="./BinomialTheorem_FormulaApplication.jpg" target="_blank">this image</a> for an example on using the Binomial Expansion Theorem Formula. In connection to Pascal's Triangle, given the binomial (ax + by)<sup>n</sup> where <i>a</i> and <i>b</i> equal 1, you can look at row <i>n</i> of Pascal's Triangle to find the coefficients of the expanded binomial expression (See Example 1). If <i>a</i> and <i>b</i> aren't equal to 1, then it's still useful, just not as straightforward (See Example 2).<br>
+                            <b>For Example:</b><br>
+                            <ol>
+                                <li>
+                                    Given (x+y)<sup>4</sup> where <i>a</i> and <i>b</i> both equal 1 and <i>n</i> equals 4, the coefficients of the
+                                    expanded binomial can be found in row 4 of Pascal's Triangle. The non-0 numbers in row 4 of Pascal's Triangle
+                                    are: <b>1, 4, 6, 4, 1</b>. Thus the expanded binomial is: <b>1</b>x<sup>4</sup> + <b>4</b>x<sup>3</sup>y +
+                                    <b>6</b>x<sup>2</sup>y<sup>2</sup> + <b>4</b>xy<sup>3</sup> + <b>1</b>y<sup>4</sup>.
+                                </li>
+                                <li>
+                                    Given (2x+2y)<sup>5</sup> where <i>a</i> and <i>b</i> both equal 2 and <i>n</i> equals 5, you would first look
+                                    at the 5th row of Pascal's Triangle which has the numbers <b>1, 5, 10, 10, 5, 1</b>. The expanded expression would be
+                                    <b>1</b>(2x)<sup>5</sup> + <b>5</b>(2x)<sup>4</sup>(2y) + <b>10</b>(2x)<sup>3</sup>(2y)<sup>2</sup> +
+                                    <b>10</b>(2x)<sup>2</sup>(2y)<sup>3</sup> + <b>5</b>(2x)(2y)<sup>4</sup> + <b>1</b>(2y)<sup>5</sup>, which is
+                                    the same as 32x<sup>5</sup> + 160x<sup>4</sup>y + 320x<sup>3</sup>y<sup>2</sup> + 320x<sup>2</sup>y<sup>3</sup>
+                                    + 160xy<sup>4</sup> + 32y<sup>5</sup>.
+                                </li>
+                            </ol>
+                            With regards to the degree of the variables, given that the binomial is written as (x+y)<sup>n</sup>, the degree of the x variable of the first term would be the
+                            <i>n</i>th degree and the degree of the y variable in the first term would be the 0th degree, or no degree. The x
+                            variable begins at the <i>n</i>th power and goes down to the 0th power while the y variable begins at the 0th power and
+                            goes up to the <i>n</i>th power.<br>
+                            <b>For Example:</b>
+                            <ol>
+                                <li>
+                                    Looking back to (x+y)<sup>4</sup>, the expanded form of the binomial is the following polynomial: 1x<sup>4</sup>
+                                    + 4x<sup>3</sup>y + 6x<sup>2</sup>y<sup>2</sup> + 4xy<sup>3</sup> + 1y<sup>4</sup>, which is the same as
+                                    1x<sup>4</sup>y<sup>0</sup> + 4x<sup>3</sup>y<sup>1</sup> + 6x<sup>2</sup>y<sup>2</sup> +
+                                    4x<sup>1</sup>y<sup>3</sup> + 1x<sup>0</sup>y<sup>4</sup>. Notice how in the first term
+                                    (1x<sup>4</sup>y<sup>0</sup>) the x variable is raised to the 4th (or the <i>n</i>) power, the second term
+                                    (4x<sup>3</sup>y) the x variable is raised to the 3rd (or the <i>n-1</i>) power, so on and so forth until in the
+                                    last term (1y<sup>4</sup>) the x variable is raised to the 0th power. The opposite is true for the y variable.
+                                    It starts with y raised to the 0th power in the first term and goes up to the 4th (or the <i>n</i>) power in the
+                                    last term (1x<sup>0</sup>y<sup>4</sup>).
+                                </li>
+                            </ol>
+                            <hr>
+                            <b>
+                                Resources:
+                            </b>
+                            <ol>
+                                <li>
+                                    <a href="https://www.khanacademy.org/math/precalculus/x9e81a4f98389efdf:series/x9e81a4f98389efdf:binomial/v/binomial-theorem" target="_blank">Khan Academy: Intro to the Binomial Theorem</a><br>
+                                </li>
+                                <li>
+                                    <a href="https://www.khanacademy.org/math/precalculus/x9e81a4f98389efdf:series/x9e81a4f98389efdf:binomial/v/pascals-triangle-binomial-theorem" target="_blank">Khan Academy: Pascal's triangle and binomial expansion</a>
+                                </li>
+                            </ol>
+                        </div>
+                        <div class="card-footer text-muted">
+                            <span class="noCSS">Name</span>
+                            <a class="noCSS backToTop" onclick="scrollToResearchSection()">Back To Top of Questions</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 mb-4">
+                    <div class="card text-bg-light mb-3" style="max-width: 30rem; margin: auto;">
+                        <div class="card-header">Research Question #2</div>
+                        <div class="card-body">
 
-        <div class="accordion" id="accordionSettings">
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="accordion-headingOne">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-collapseOne"
-                        aria-expanded="false" aria-controls="accordion-collapseOne">
-                        User Configurable Settings
-                    </button>
-                </h2>
-                <div id="accordion-collapseOne" class="accordion-collapse collapse" aria-labelledby="accordion-headingOne"
-                    data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                        <form id="NumberOfRowsForm">
-                            <label for="rows">Number of Rows:</label>
-                            <input type="number" id="NumberOfRows_SettingInput" name="rows" min="1" max="20" required style="width: 100px;">
-                            <input type="submit" value="Submit">
-                            <br>
-                            Current Number of Rows: <span id="NumberOfRows_Current" class="noCSS">-</span>
-                            <br>
-                            Maximum Number of Rows: <span class="noCSS">20</span>
-                        </form>
+                        </div>
+                        <div class="card-footer text-muted">
+                            <span class="noCSS">Name</span>
+                            <a class="noCSS backToTop" onclick="scrollToResearchSection()">Back To Top of Questions</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 mb-4">
+                    <div class="card text-bg-light mb-3" style="max-width: 30rem; margin: auto;">
+                        <div class="card-header">Research Question #3</div>
+                        <div class="card-body">
+                            
+                        </div>
+                        <div class="card-footer text-muted">
+                            <span class="noCSS">Name</span>
+                            <a class="noCSS backToTop" onclick="scrollToResearchSection()">Back To Top of Questions</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
+        <footer class="fixed-bottom text-center">
+            Created By: ...
+        </footer>
+
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async></script>
         <!-- <script src="scaling.js"></script> -->
         <script src="pascal.js"></script>
         <script src="listeners.js"></script>
+        <script src="scroll.js"></script>
     </body>
 </html>
