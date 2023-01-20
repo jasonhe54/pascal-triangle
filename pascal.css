@@ -69,3 +69,7 @@ span {
 footer {
     background-color: white;
 }
+
+body {
+    padding-bottom: 15px;
+}

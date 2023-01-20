@@ -6,7 +6,7 @@ document.getElementById("NumberOfRowsForm").addEventListener("submit", function(
     // clear the input field
     document.getElementById("NumberOfRows_SettingInput").value = "";
     // create the triangle
-    createTriangles(numberOfRows);
+    createTriangle(numberOfRows);
 });
 
 // document.getElementById("TriangleScaleForm").addEventListener("submit", function(e) {
