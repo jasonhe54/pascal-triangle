@@ -6,12 +6,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Pascal's Triangle</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
         <link rel="stylesheet" href="pascal.css">
     </head>
     <body>
         <nav class="navbar bg-light">
-            <div class="container-fluid justify-content-center">
-                <h1 class="navbar-brand mb-0 h1">Pascal's Triangle</h1>
+            <div class="container-fluid d-flex">
+                <h1 class="navbar-brand mb-0 h1 mx-auto">Pascal's Triangle</h1><a href="https://github.com/jasonhe54/pascal-triangle" class="text-dark bi bi-github float-right" target="_blank"></a> 
             </div>
         </nav>
 
@@ -20,8 +21,6 @@
             right and left to see
             the entire diagram
         </div> -->
-
-        <!-- <h1>Pascal's Triangle:</h1> -->
         
         <div class="container text-center noPadding">
             <div class="row align-items-start noMargin" style="max-width: 100%;">
@@ -29,7 +28,8 @@
                     <div id="pTriangle" class="scaledv1" data-show0s="false"></div>
                 </div>
             </div>
-            <span class="noCSS">The first row is Row 0, representing (a + b)<sup>0</sup>.</span>
+            <span class="noCSS text-muted" style="font-size: 12px;">The first row is Row 0, representing (a + b)<sup>0</sup>.</span><br>
+            <span class="noCSS text-muted" style="font-size: 12px;">You can scroll the triangle right and left to see the entire triangle if any part is cut off.</span>
         </div>
 
         <hr>
@@ -55,11 +55,27 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6 mb-4">
+                <!-- <div class="col-sm-6 mb-4">
                     <div class="card text-bg-light mb-3" style="max-width: 30rem; margin: auto;">
-                        <div class="card-header">Notices</div>
+                        <div class="card-header">Notice</div>
                         <div class="card-body">
                             <p class="card-text">If you're on a smaller screen, or have a larger triangle with part of the triangle missing, you can scroll the triangle right and left to see the entire diagram.</p>
+                        </div>
+                    </div>
+                </div> -->
+                <div class="col-sm-6 mb-4">
+                    <div class="card text-bg-light mb-3" style="max-width: 30rem; margin: auto;">
+                        <div class="card-header">Triangle Creation Explaination</div>
+                        <div class="card-body">
+                            <p class="card-text">
+                                <b>In General:</b>
+                                <ul>
+                                    <li>
+                                        Pascal's Triangle can be created by placing a 1 in the first row (<i>"row 0"</i>). It is assumed that all empty spaces next to a <i>1</i> is a <i>0</i>. The following row can be created by taking the sum of the two numbers directly above it. This will be done for each non-0 number in the row, with the starting number always being <i>1</i> and the ending number always being <i>1</i>. This process will be repeated for each row until you have however many rows you want.
+                                    </li>
+                                </ul>
+                                If you want the more technical explanation of how the Pascal's Triangle on this page was created you can read the comments inside of the <kbd>createTriangle()</kbd> function in the <kbd>pascal.js</kbd> file <a href="./pascal.js" target="_blank">here</a>.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -99,12 +115,7 @@
                                     <b>6</b>x<sup>2</sup>y<sup>2</sup> + <b>4</b>xy<sup>3</sup> + <b>1</b>y<sup>4</sup>.
                                 </li>
                                 <li>
-                                    Given (2x+2y)<sup>5</sup> where <i>a</i> and <i>b</i> both equal 2 and <i>n</i> equals 5, you would first look
-                                    at the 5th row of Pascal's Triangle which has the numbers <b>1, 5, 10, 10, 5, 1</b>. The expanded expression would be
-                                    <b>1</b>(2x)<sup>5</sup> + <b>5</b>(2x)<sup>4</sup>(2y) + <b>10</b>(2x)<sup>3</sup>(2y)<sup>2</sup> +
-                                    <b>10</b>(2x)<sup>2</sup>(2y)<sup>3</sup> + <b>5</b>(2x)(2y)<sup>4</sup> + <b>1</b>(2y)<sup>5</sup>, which is
-                                    the same as 32x<sup>5</sup> + 160x<sup>4</sup>y + 320x<sup>3</sup>y<sup>2</sup> + 320x<sup>2</sup>y<sup>3</sup>
-                                    + 160xy<sup>4</sup> + 32y<sup>5</sup>.
+                                    Given (2x+2y)<sup>5</sup> where <i>a</i> and <i>b</i> both equal 2 and <i>n</i> equals 5, you would first look at the 5th row of Pascal's Triangle which has the numbers <b>1, 5, 10, 10, 5, 1</b>. The expanded expression would be <b>1</b>(2x)<sup>5</sup> + <b>5</b>(2x)<sup>4</sup>(2y) + <b>10</b>(2x)<sup>3</sup>(2y)<sup>2</sup> + <b>10</b>(2x)<sup>2</sup>(2y)<sup>3</sup> + <b>5</b>(2x)(2y)<sup>4</sup> + <b>1</b>(2y)<sup>5</sup>, which is the same as <b>32x<sup>5</sup> + 160x<sup>4</sup>y + 320x<sup>3</sup>y<sup>2</sup> + 320x<sup>2</sup>y<sup>3</sup> + 160xy<sup>4</sup> + 32y<sup>5</sup></b>.
                                 </li>
                             </ol>
                             With regards to the degree of the variables, given that the binomial is written as (x+y)<sup>n</sup>, the degree of the x variable of the first term would be the
@@ -139,7 +150,7 @@
                             </ol>
                         </div>
                         <div class="card-footer text-muted">
-                            <span class="noCSS">Name</span>
+                            <span class="noCSS">Jason He</span>
                             <a class="noCSS backToTop" onclick="scrollToResearchSection()">Back To Top of Questions</a>
                         </div>
                     </div>
@@ -148,10 +159,32 @@
                     <div class="card text-bg-light mb-3" style="max-width: 30rem; margin: auto;">
                         <div class="card-header">Research Question #2</div>
                         <div class="card-body">
-
+                            <b>
+                                Who was Blaise Pascal, and what did he do? What and how did he contribute to the field of mathematics? What social, political, or other factors influenced him and his work?
+                            </b>
+                            <br>
+                            Blaise Pascal was a French mathematician, physicist, and philosopher who is known for inventing the mechanical calculator, the syringe, and the hydraulic press, and for his contributions and developments in probability theory. In the field of mathematics, his main contributions were Pascal’s triangle, which was originally written for gambling purposes, and the invention of the Pascaline, or Pascal’s calculator. When he was 3, his mother died and his father, Étienne Pascal moved to Paris with his children and decided to educate them himself, where Blaise discovered his talents and interest in mathematics and science, something that his father was also passionate about. Étienne became a French tax officer and spent countless hours calculating taxes over and over. In order to help ease his father’s workload, Blaise, who was 18 at the time, invented a calculator, although it was only capable of addition and subtraction. In 1654, Pascal wrote up Pascal’s triangle, which he called the arithmetic triangle. The concept was written several times in Asia, but Pascal was the first in the western world to come up with the idea. The triangle contained binomial coefficients and patterns that were used in algebra, probabilities, and statistics
+                            <hr>
+                            <b>
+                                Resources:
+                            </b>
+                            <ol>
+                                <li>
+                                    <a href="https://mathshistory.st-andrews.ac.uk/Biographies/Pascal/#:~:text=Blaise%20Pascal%20was%20a%20very,for%20the%20theory%20of%20probability." target="_blank">Blaise Pascal Biography - MacTutor History of Mathematics</a><br>
+                                </li>
+                                <li>
+                                    <a href="https://en.wikipedia.org/wiki/Blaise_Pascal" target="_blank">Blaise Pascal - Wikipedia</a>
+                                </li>
+                                <li>
+                                    <a href="https://www.britannica.com/biography/Blaise-Pascal" target="_blank">Blaise Pascal - Britannica</a>
+                                </li>
+                                <li>
+                                    <a href="https://en.wikipedia.org/wiki/Pascal%27s_triangle" target="_blank">Pascal Triangle - Wikipedia</a>
+                                </li>
+                            </ol>
                         </div>
                         <div class="card-footer text-muted">
-                            <span class="noCSS">Name</span>
+                            <span class="noCSS">Derik Leung</span>
                             <a class="noCSS backToTop" onclick="scrollToResearchSection()">Back To Top of Questions</a>
                         </div>
                     </div>
@@ -160,10 +193,48 @@
                     <div class="card text-bg-light mb-3" style="max-width: 30rem; margin: auto;">
                         <div class="card-header">Research Question #3</div>
                         <div class="card-body">
-                            
+                            <b>
+                                How many odd numbers are in the 100th row of the triangle? The 101st row? The 200th row? Give a general procedure for determining the number of odd numbers in the <i>n</i>th row of the triangle without drawing it out.
+                            </b><br>
+                            <b>General Procedure:</b><br>
+                            To find the amount of odd numbers in any row of Pascal's Triangle, you need to find the highest power of 2 that fits into the number of rows (the value of <i>n</i>), subtract that amount from <i>n</i>, then repeat until <i>n</i>=0. With this, you can turn the number into its binary representation.
+                            <br>
+                            <b>For Example:</b>
+                            <ol>
+                                <li>
+                                    Given <b>n = 100</b> (100th row).<br>
+                                    100 = <b>64+32+4</b><br>
+                                    It can be expressed as: <b>1(2<sup>6</sup>) + 1(2<sup>5</sup>) + 0(2<sup>4</sup>) + 0(2<sup>3</sup>) + 1(2<sup>2</sup>) + 0(2<sup>1</sup>) + 0(2<sup>0</sup>)</b><br>
+                                    100 in Binary = <b>1100100<sub>2</sub></b><br>
+                                    In the binary representation of 100, there are <b>3</b> 1s, therefore, there are <b>2<sup>3</sup></b> or <b>8</b> odd numbers in the 100th row of Pascal's Triangle.
+                                </li>
+                                <li>
+                                    Given <b>n = 101</b> (101st row).<br>
+                                    101 = <b>64+32+4+1</b><br>
+                                    It can be expressed as: <b>1(2<sup>6</sup>) + 1(2<sup>5</sup>) + 0(2<sup>4</sup>) + 0(2<sup>3</sup>) + 1(2<sup>2</sup>) + 0(2<sup>1</sup>) + 1(2<sup>0</sup>)</b><br>
+                                    101 in Binary = <b>1100101<sub>2</sub></b><br>
+                                    In the binary representation of 101, there are <b>4</b> 1s, therefore, there are <b>2<sup>4</sup></b> or <b>16</b> odd numbers in the 101st row of Pascal's Triangle.
+                                </li>
+                                <li>
+                                    Given <b>n = 200</b> (200th row).<br>
+                                    200 = <b>128+64+8</b><br>
+                                    It can be expressed as: <b>1(2<sup>7</sup>) + 1(2<sup>6</sup>) + 0(2<sup>5</sup>) + 0(2<sup>4</sup>) + 1(2<sup>3</sup>) + 0(2<sup>2</sup>) + 0(2<sup>1</sup>) + 0(2<sup>0</sup>)</b><br>
+                                    200 in Binary = <b>11001000<sub>2</sub></b><br>
+                                    In the binary representation of 200, there are <b>3</b> 1s, therefore, there are <b>2<sup>3</sup></b> or <b>8</b> odd numbers in the 200th row of Pascal's Triangle.
+                                </li>
+                            </ol>
+                            <hr>
+                            <b>
+                                Resources:
+                            </b>
+                            <ol>
+                                <li>
+                                    <a href="https://www.calculator.net/binary-calculator.html" target="_blank">Binary Calculator - calculator.net</a><br>
+                                </li>
+                            </ol>
                         </div>
                         <div class="card-footer text-muted">
-                            <span class="noCSS">Name</span>
+                            <span class="noCSS">Derik Leung</span>
                             <a class="noCSS backToTop" onclick="scrollToResearchSection()">Back To Top of Questions</a>
                         </div>
                     </div>
@@ -172,7 +243,7 @@
         </div>
 
         <footer class="fixed-bottom text-center">
-            Created By: ...
+            Created By: Jason He and Derik Leung
         </footer>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
