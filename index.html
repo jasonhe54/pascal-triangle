@@ -38,7 +38,7 @@
             <div class="row noMargin" data-masonry='{"percentPosition": true }' style="max-width: 100%;">
                 <div class="col-sm-6 mb-4">
                     <div class="card text-bg-light mb-3" style="max-width: 30rem; margin: auto;">
-                        <div class="card-header">Configuration</div>
+                        <div class="card-header" id="ConfigurationPanel">Configuration</div>
                         <div class="card-body">
                             <form id="NumberOfRowsForm">
                                 <label for="rows">Number of Rows:</label>
@@ -49,6 +49,8 @@
                                 Current Number of Rows: <span id="NumberOfRows_Current" class="noCSS">-</span>
                                 <br>
                                 There is no maximum number of rows, but anything after 30 rows will not be formatted well.
+                                <hr>
+                                Note: The first row is <i>"row 0"</i>, so if you set the number of rows to 20, the last row will be called the 19th row, but it'll be the 20th row that you can see.
                             </form>
                             <hr>
                             <button id="showHide0sBtn" type="button" class="btn btn-dark" onclick="showHide0s()">Show 0s in Pascal's Triangle</button>
@@ -225,6 +227,20 @@
                             </ol>
                             <hr>
                             <b>
+                                Proof Of Concept:
+                            </b>
+                            <form id="binaryPOCForm">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="binaryNumberInput">n=</span>
+                                    <input type="number" class="form-control" placeholder="Enter a number" aria-label="n="
+                                        aria-describedby="binaryNumberInput" id="binaryPOC_Input">
+                                    <button type="submit" class="btn btn-dark" onclick="oddNum_binaryPOC()">Get</button>
+                                </div>
+                            </form>
+                            <span class="noCSS text-muted mb-0 pd-0" style="font-size: 12px;">First row is n=0. So if n=20, then it'll return the results for the 21st row. If you want to double check with Pascal's Triangle, make sure you use n+1 for the number of rows in the <a onclick="scrollToConfigurationPanel()" class="pointer text-primary">Configuration<i class="bi bi-arrow-up-right"></i></a> settings.</span>
+                            <div id="binaryPOCOutput"></div>
+                            <hr>
+                            <b>
                                 Resources:
                             </b>
                             <ol>
@@ -252,5 +268,6 @@
         <script src="pascal.js"></script>
         <script src="listeners.js"></script>
         <script src="scroll.js"></script>
+        <script src="binary.js"></script>
     </body>
 </html>
