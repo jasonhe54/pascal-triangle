@@ -204,21 +204,21 @@
                             <b>For Example:</b>
                             <ol>
                                 <li>
-                                    Given <b>n = 100</b> (100th row).<br>
+                                    Given <b>n = 100</b> <i class="bi bi-info-circle" data-bs-toggle="popover" data-bs-content="100th row you can see. Called the 99th row." data-bs-trigger="focus" tabindex="0"></i><br>
                                     100 = <b>64+32+4</b><br>
                                     It can be expressed as: <b>1(2<sup>6</sup>) + 1(2<sup>5</sup>) + 0(2<sup>4</sup>) + 0(2<sup>3</sup>) + 1(2<sup>2</sup>) + 0(2<sup>1</sup>) + 0(2<sup>0</sup>)</b><br>
                                     100 in Binary = <b>1100100<sub>2</sub></b><br>
                                     In the binary representation of 100, there are <b>3</b> 1s, therefore, there are <b>2<sup>3</sup></b> or <b>8</b> odd numbers in the 100th row of Pascal's Triangle.
                                 </li>
                                 <li>
-                                    Given <b>n = 101</b> (101st row).<br>
+                                    Given <b>n = 101</b> <i class="bi bi-info-circle" data-bs-toggle="popover" data-bs-content="101st row you can see. Called the 100th row." data-bs-trigger="focus" tabindex="0"></i><br>
                                     101 = <b>64+32+4+1</b><br>
                                     It can be expressed as: <b>1(2<sup>6</sup>) + 1(2<sup>5</sup>) + 0(2<sup>4</sup>) + 0(2<sup>3</sup>) + 1(2<sup>2</sup>) + 0(2<sup>1</sup>) + 1(2<sup>0</sup>)</b><br>
                                     101 in Binary = <b>1100101<sub>2</sub></b><br>
                                     In the binary representation of 101, there are <b>4</b> 1s, therefore, there are <b>2<sup>4</sup></b> or <b>16</b> odd numbers in the 101st row of Pascal's Triangle.
                                 </li>
                                 <li>
-                                    Given <b>n = 200</b> (200th row).<br>
+                                    Given <b>n = 200</b> <i class="bi bi-info-circle" data-bs-toggle="popover" data-bs-content="200th row you can see. Called the 199th row." data-bs-trigger="focus" tabindex="0"></i><br>
                                     200 = <b>128+64+8</b><br>
                                     It can be expressed as: <b>1(2<sup>7</sup>) + 1(2<sup>6</sup>) + 0(2<sup>5</sup>) + 0(2<sup>4</sup>) + 1(2<sup>3</sup>) + 0(2<sup>2</sup>) + 0(2<sup>1</sup>) + 0(2<sup>0</sup>)</b><br>
                                     200 in Binary = <b>11001000<sub>2</sub></b><br>
@@ -237,7 +237,7 @@
                                     <button type="submit" class="btn btn-dark" onclick="oddNum_binaryPOC()">Get</button>
                                 </div>
                             </form>
-                            <span class="noCSS text-muted mb-0 pd-0" style="font-size: 12px;">First row is n=0. So if n=20, then it'll return the results for the 21st row. If you want to double check with Pascal's Triangle, make sure you use n+1 for the number of rows in the <a onclick="scrollToConfigurationPanel()" class="pointer text-primary">Configuration<i class="bi bi-arrow-up-right"></i></a> settings.</span>
+                            <span class="noCSS text-muted mb-0 pd-0" style="font-size: 12px;">First row is n=0. So if n=20, then it'll return the results for the 21st row that you can see. If you want to double check with Pascal's Triangle, make sure you use n+1 for the number of rows in the <a onclick="scrollToConfigurationPanel()" class="pointer text-primary">Configuration<i class="bi bi-arrow-up-right"></i></a> settings. If you want to see the 15th row, you'd use n=14 here and 15 under Configuration.</span>
                             <div id="binaryPOCOutput"></div>
                             <hr>
                             <b>
@@ -269,5 +269,6 @@
         <script src="listeners.js"></script>
         <script src="scroll.js"></script>
         <script src="binary.js"></script>
+        <script src="popover.js"></script>
     </body>
 </html>
